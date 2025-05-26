@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #112700, #154411);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background-color: rgb(255, 255, 255);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2575fc;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #6a11cb;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <button onclick="login()">Login</button>
+    <p id="message"></p>
+</div>
+
+<script>
+// function login() {
+//     const user = document.getElementById('username').value.trim();
+//     const pass = document.getElementById('password').value.trim();
+//     const message = document.getElementById('message');
+
+//     if (user === "" || pass === "") {
+//         message.innerText = "⚠️ Please fill all fields!";
+//         message.className = "error-message";
+//     } else {
+//         message.innerText = "✅ Login Successful!";
+//         message.className = "success-message";
+//         window.location.href = "Assignment2_1.html";setTimeout(closeLogin, 1500);;
+//     }
+// }
+function login() {
+    const user = document.getElementById('username').value.trim();
+    const pass = document.getElementById('password').value.trim();
+    const message = document.getElementById('message');
+
+    if (user === "" || pass === "") {
+        message.innerText = "⚠️ Please fill all fields!";
+        message.className = "error-message";
+    } else if (pass.length < 8) {
+        message.innerText = "🔒 Password must be at least 8 characters!";
+        message.className = "error-message";
+    } else if (user === storedUsername && pass === storedPassword) {
+        message.innerText = "✅ Login Successful!";
+        message.className = "success-message";
+        setTimeout(() => {
+            window.location.href = "web_course_project.html";
+        }, 1500);
+    } else {
+        message.innerText = "❌ Invalid credentials!";
+        message.className = "error-message";
+    }
+}
+
+</script>
+<script src="credentials.js"></script>
+
+
+</body>
+</html>
