@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Market Price Tracker | AgroVision</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f8f6;
+      padding-bottom: 50px;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #388e3c 60%, #8bc34a 100%);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #fff !important;
+      letter-spacing: 2px;
+    }
+    .hero-section {
+      background: linear-gradient(
+          rgba(56, 142, 60, 0.8),
+          rgba(56, 142, 60, 0.8)
+        ),
+        url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80')
+          center/cover no-repeat;
+      color: #fff;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-weight: 700;
+      color: #388e3c;
+      margin: 2rem 0 1.5rem 0;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .back-link {
+      color: #388e3c;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    #cropSelect {
+      max-width: 300px;
+      margin: 0 auto 2rem auto;
+      display: block;
+    }
+    table {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    th {
+      background-color: #388e3c !important;
+      color: white !important;
+    }
+    @media (max-width: 576px) {
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">AgroVision</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Market Price Tracker</h1>
+      <p>View historical and current market prices for major crops.</p>
+    </div>
+  </section>
+
+  <div class="container my-4">
+    <a href="index.html#services" class="back-link">&larr; Back to Services</a>
+
+    <div class="section-title">Select Crop</div>
+    <select id="cropSelect" class="form-select" aria-label="Select Crop">
+      <option value="" disabled selected>Select a crop</option>
+      <option value="wheat">Wheat</option>
+      <option value="rice">Rice</option>
+      <option value="mustard">Mustard</option>
+      <option value="maize">Maize</option>
+      <option value="cotton">Cotton</option>
+    </select>
+
+    <canvas id="priceChart" style="max-height: 400px; margin-bottom: 2rem;"></canvas>
+
+    <div class="section-title">Price Data Table</div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered align-middle" id="priceTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Min Price (₹/q)</th>
+            <th>Max Price (₹/q)</th>
+            <th>Avg Price (₹/q)</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // Sample crop price data (dates, prices, location)
+    const cropPriceData = {
+      wheat: [
+        { date: '2025-05-01', min: 2150, max: 2450, avg: 2300, location: 'Karnal' },
+        { date: '2025-05-05', min: 2170, max: 2470, avg: 2320, location: 'Karnal' },
+        { date: '2025-05-10', min: 2200, max: 2500, avg: 2350, location: 'Karnal' },
+        { date: '2025-05-15', min: 2220, max: 2520, avg: 2370, location: 'Karnal' },
+        { date: '2025-05-18', min: 2230, max: 2530, avg: 2380, location: 'Karnal' },
+      ],
+      rice: [
+        { date: '2025-05-01', min: 2000, max: 2400, avg: 2200, location: 'Amritsar' },
+        { date: '2025-05-05', min: 2020, max: 2420, avg: 2220, location: 'Amritsar' },
+        { date: '2025-05-10', min: 2030, max: 2430, avg: 2230, location: 'Amritsar' },
+        { date: '2025-05-15', min: 2050, max: 2450, avg: 2250, location: 'Amritsar' },
+        { date: '2025-05-18', min: 2060, max: 2460, avg: 2260, location: 'Amritsar' },
+      ],
+      mustard: [
+        { date: '2025-05-01', min: 5800, max: 6400, avg: 6100, location: 'Jaipur' },
+        { date: '2025-05-05', min: 5850, max: 6450, avg: 6150, location: 'Jaipur' },
+        { date: '2025-05-10', min: 5900, max: 6500, avg: 6200, location: 'Jaipur' },
+        { date: '2025-05-15', min: 5950, max: 6550, avg: 6250, location: 'Jaipur' },
+        { date: '2025-05-18', min: 6000, max: 6600, avg: 6300, location: 'Jaipur' },
+      ],
+      maize: [
+        { date: '2025-05-01', min: 1800, max: 2100, avg: 1950, location: 'Indore' },
+        { date: '2025-05-05', min: 1820, max: 2120, avg: 1970, location: 'Indore' },
+        { date: '2025-05-10', min: 1850, max: 2150, avg: 2000, location: 'Indore' },
+        { date: '2025-05-15', min: 1870, max: 2170, avg: 2020, location: 'Indore' },
+        { date: '2025-05-18', min: 1900, max: 2200, avg: 2050, location: 'Indore' },
+      ],
+      cotton: [
+        { date: '2025-05-01', min: 5000, max: 5800, avg: 5400, location: 'Surat' },
+        { date: '2025-05-05', min: 5050, max: 5850, avg: 5450, location: 'Surat' },
+        { date: '2025-05-10', min: 5100, max: 5900, avg: 5500, location: 'Surat' },
+        { date: '2025-05-15', min: 5150, max: 5950, avg: 5550, location: 'Surat' },
+        { date: '2025-05-18', min: 5200, max: 6000, avg: 5600, location: 'Surat' },
+      ],
+    };
+
+    const ctx = document.getElementById('priceChart').getContext('2d');
+    let priceChart;
+
+    function updateChartAndTable(crop) {
+      if (!crop) {
+        // Clear chart and table if no crop selected
+        if (priceChart) {
+          priceChart.destroy();
+        }
+        document.querySelector('#priceTable tbody').innerHTML = '';
+        return;
+      }
+
+      const data = cropPriceData[crop];
+      if (!data) return;
+
+      // Prepare data for chart
+      const labels = data.map((item) => item.date);
+      const avgPrices = data.map((item) => item.avg);
+
+      // Destroy previous chart if exists
+      if (priceChart) priceChart.destroy();
+
+      priceChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Average Price (₹/q)',
+              data: avgPrices,
+              fill: false,
+              borderColor: '#388e3c',
+              backgroundColor: '#388e3c',
+              tension: 0.3,
+              pointRadius: 5,
+              pointHoverRadius: 7,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true, position: 'top' },
+            tooltip: { mode: 'index', intersect: false },
+          },
+          scales: {
+            x: {
+              display: true,
+              title: { display: true, text: 'Date' },
+            },
+            y: {
+              display: true,
+              title: { display: true, text: 'Price (₹/q)' },
+              beginAtZero: false,
+            },
+          },
+        },
+      });
+
+      // Populate table
+      const tbody = document.querySelector('#priceTable tbody');
+      tbody.innerHTML = '';
+      data.forEach(({ date, min, max, avg, location }) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${date}</td>
+          <td>₹${min.toLocaleString()}</td>
+          <td>₹${max.toLocaleString()}</td>
+          <td>₹${avg.toLocaleString()}</td>
+          <td>${location}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.getElementById('cropSelect').addEventListener('change', (e) => {
+      updateChartAndTable(e.target.value);
+    });
+
+    // Initialize empty chart/table
+    updateChartAndTable(null);
+  </script>
+</body>
+</html>
