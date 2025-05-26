@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroVision - Modern Agriculture Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background: #f5f8f6; }
+        .navbar { background: linear-gradient(90deg, #388e3c 60%, #8bc34a 100%); }
+        .navbar-brand { font-weight: 700; color: #fff !important; letter-spacing: 2px; }
+        .nav-link { color: #fff !important; font-weight: 500; margin-right: 1rem; }
+        .nav-link.active, .nav-link:hover { color: #ffd600 !important; }
+        .hero-section {
+            background: linear-gradient(rgba(56,142,60,0.8),rgba(56,142,60,0.8)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: #fff; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+        .hero-section h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero-section p { font-size: 1.3rem; font-weight: 400; }
+        .section-title { font-weight: 700; color: #388e3c; margin-bottom: 2rem; text-align: center; letter-spacing: 1px; }
+        .card { border: none; border-radius: 18px; box-shadow: 0 6px 32px rgba(56,142,60,0.08); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 12px 40px rgba(56,142,60,0.15); }
+        .card-img-top { height: 170px; object-fit: cover; border-radius: 18px 18px 0 0; }
+        .crop-table th { background: #388e3c; color: #fff; }
+        .crop-table td, .crop-table th { vertical-align: middle; }
+        .contact-section { background: linear-gradient(90deg, #388e3c 60%, #8bc34a 100%); color: #fff; padding: 3rem 0; }
+        .form-control, .form-control:focus { border-radius: 8px; border: none; box-shadow: none; }
+        .btn-custom { background: #ffd600; color: #388e3c; font-weight: 600; border-radius: 8px; transition: background 0.2s; }
+        .btn-custom:hover { background: #fff176; color: #388e3c; }
+        .faq-item { margin-bottom: 1.5rem; }
+        .success-story { background: #fff; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 12px rgba(56,142,60,0.08);}
+        .scheme-list li { margin-bottom: 0.5rem; }
+        .budget-highlight { background: #e8f5e9; border-left: 5px solid #388e3c; padding: 1rem 1.5rem; margin-bottom: 2rem; }
+        footer { background: #222; color: #fff; text-align: center; padding: 1.2rem 0 0.5rem 0; letter-spacing: 1px; font-size: 1rem; }
+        @media (max-width: 767px) {
+            .hero-section h1 { font-size: 2rem; }
+            .hero-section p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">AgroVision</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schemes">Schemes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#budget">Budget & Funding</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#crops">Crop Guide</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <h1>Empowering Indian Farmers</h1>
+            <p>Modern solutions, expert guidance, and real-time insights for a sustainable agricultural future.</p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="container py-5" id="services">
+        <div class="section-title">Our Services</div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="weather.html" style="text-decoration:none;">
+                <div class="card h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Weather">
+                    <div class="card-body">
+                        <h5 class="card-title">Weather Forecast</h5>
+                        <p class="card-text">Get accurate weather updates and alerts tailored for your region to plan your farming activities better.</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="market.html" style="text-decoration:none;">
+                <div class="card h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Market">
+                    <div class="card-body">
+                        <h5 class="card-title">Market Price Tracker</h5>
+                        <p class="card-text">Live mandi prices for major crops, so you can sell your produce at the best rates and maximize your profit.</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="techniques.html" style="text-decoration:none;">
+                <div class="card h-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Farming">
+                    <div class="card-body">
+                        <h5 class="card-title">Modern Farming Techniques</h5>
+                        <p class="card-text">Learn about sustainable practices, new technologies, and government schemes to boost your yield.</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Schemes & Subsidies -->
+    <section class="container py-5" id="schemes">
+      <div class="section-title">Central & State Government Schemes for Farmers</div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</h5>
+              <ul class="scheme-list">
+                <li>₹6,000/year direct income support (3 installments)</li>
+                <li>Eligibility: Small & marginal landholding farmers</li>
+                <li><a href="https://pmkisan.gov.in/" target="_blank">Apply here</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Pradhan Mantri Fasal Bima Yojana (PMFBY)</h5>
+              <ul class="scheme-list">
+                <li>Crop insurance for losses due to natural calamities, pests, diseases</li>
+                <li>Kharif: 2% premium, Rabi: 1.5%</li>
+                <li>Quick claim settlement, direct bank transfer</li>
+                <li><a href="https://pmfby.gov.in/" target="_blank">Official site</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">PM Krishi Sinchayee Yojana (PMKSY)</h5>
+              <ul class="scheme-list">
+                <li>Focus: “Har Khet Ko Pani”, “More Crop Per Drop”</li>
+                <li>Includes: Drip/sprinkler irrigation, watershed, micro-irrigation</li>
+                <li><a href="https://pmksy.gov.in/" target="_blank">Details</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Kisan Credit Card (KCC)</h5>
+              <ul class="scheme-list">
+                <li>Instant credit up to ₹3 lakh at low interest</li>
+                <li>For crops, dairy, fisheries, allied activities</li>
+                <li><a href="https://pmkisan.gov.in/Documents/Kisan_Credit_Card.pdf" target="_blank">Apply</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 mt-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Agriculture Infrastructure Fund (AIF)</h5>
+              <ul class="scheme-list">
+                <li>Loans up to ₹2 crore with 3% interest subvention</li>
+                <li>For warehouses, cold storage, food processing</li>
+                <li><a href="https://www.aif.gov.in/" target="_blank">AIF Portal</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">National Agriculture Market (e-NAM)</h5>
+              <ul class="scheme-list">
+                <li>Digital platform for selling crops directly to buyers</li>
+                <li>Eliminates middlemen, ensures better prices</li>
+                <li><a href="https://enam.gov.in/" target="_blank">e-NAM Portal</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 mt-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Soil Health Card Scheme</h5>
+              <ul class="scheme-list">
+                <li>Personalized fertilizer advice based on soil testing</li>
+                <li>Apply via local agri office</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Formation of 10,000 FPOs</h5>
+              <ul class="scheme-list">
+                <li>Up to ₹18 lakh per FPO for 3 years</li>
+                <li>Enhances productivity, bargaining power</li>
+                <li>As of Aug 2024: 8,875 FPOs, 19.7 lakh farmers registered</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 mt-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">State Schemes (Examples)</h5>
+              <ul class="scheme-list">
+                <li>Atma Nirbhar Bagwani Yojana (Horticulture, NE India)</li>
+                <li>YSR Rythu Bharosa (Andhra Pradesh): ₹13,500/year support</li>
+                <li>Tractor subsidy (Punjab, Karnataka, etc.)</li>
+                <li>Bhavantar Bhugtan Yojana (MP): Price compensation</li>
+                <li>KALIA (Odisha): Direct financial help</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Livestock & Dairy Schemes</h5>
+              <ul class="scheme-list">
+                <li>National Program for Dairy Development (NPDD): ₹2,790 crore (2021-26)</li>
+                <li>Rashtriya Gokul Mission (RGM): ₹3,400 crore (2021-26)</li>
+                <li>Poultry Farm Loan Subsidy (various states)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Budget, Funding & Newest Initiatives -->
+    <section class="container py-5" id="budget">
+      <div class="section-title">Union Budget 2025-26: New Initiatives & Funding</div>
+      <div class="budget-highlight">
+        <strong>Prime Minister Dhan-Dhaanya Krishi Yojana</strong>: New flagship scheme to boost productivity, crop diversification, and sustainable agriculture in 100 low-productivity districts, benefiting 1.7 crore farmers.<br>
+        <strong>Rural Prosperity and Resilience Programme</strong>: Multi-sectoral initiative for rural jobs, skilling, and technology adoption.<br>
+        <strong>PM-AASHA</strong>: Price support to stabilize farmer income.<br>
+        <strong>Special DAP Subsidy</strong>: DAP fertilizer subsidy extended at ₹3,500/MT.<br>
+        <strong>Research & Innovation:</strong> Fund for Innovation and Technology (FIAT) with ₹824.77 crore for tech adoption in insurance and farming.
+      </div>
+      <ul>
+        <li><strong>Total allocation for agriculture & allied sectors:</strong> Over ₹1.4 lakh crore (2025-26)</li>
+        <li><strong>Crop Insurance (PMFBY & Weather Based):</strong> ₹69,515 crore (2021-26)</li>
+        <li><strong>Animal Husbandry & Dairy:</strong> ₹2,790 crore (NPDD), ₹3,400 crore (RGM)</li>
+        <li><strong>FPOs:</strong> ₹584 crore for 2025-26</li>
+      </ul>
+    </section>
+
+    <!-- Subsidies & Support -->
+    <section class="container py-5">
+      <div class="section-title">Subsidies, Support & Mechanization</div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Fertilizer Subsidies</h5>
+              <p>Major subsidies on urea, DAP, MOP, and complex fertilizers through the Nutrient Based Subsidy (NBS) scheme. Urea Subsidy Scheme ensures affordable prices for farmers. Over ₹37,000 crore allocated for Kharif 2025.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Farm Equipment & Seeds</h5>
+              <p>Subsidies on farm machinery (tractors, planters, threshers), high-yield seeds, and organic inputs under schemes like NFSM, MIDH, and PKVY. Special rates for women, SC/ST, and hilly region farmers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Training, Education & Extension -->
+    <section class="container py-5" id="education">
+      <div class="section-title">Training, Education & Extension</div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Free Agricultural Training</h5>
+              <p>Get free or subsidized training on modern techniques, organic farming, pest management, and more. Contact your local KVK or state agri department.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Online Courses</h5>
+              <p>Learn at your own pace: soil health, irrigation, pest control, agri-business, and marketing. <a href="https://www.manage.gov.in/" target="_blank">MANAGE Portal</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Extension Services</h5>
+              <p>Get advice from KVKs, ATMA, ICAR, and state departments for technology transfer, problem-solving, and facilitation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crop Guide -->
+    <section class="container py-5" id="crops">
+        <div class="section-title">Seasonal Crop Guide</div>
+        <div class="table-responsive">
+            <table class="table crop-table align-middle">
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>Crops</th>
+                        <th>Fertilizer</th>
+                        <th>Market Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="fw-bold text-success">🌧️ Kharif</span><br><small>Jun-Oct</small></td>
+                        <td>Rice, Maize, Cotton</td>
+                        <td>NPK 30:30:20 + Zinc</td>
+                        <td>₹2,100-₹5,800/q</td>
+                    </tr>
+                    <tr>
+                        <td><span class="fw-bold text-info">❄️ Rabi</span><br><small>Nov-Apr</small></td>
+                        <td>Wheat, Mustard, Gram</td>
+                        <td>DAP 50kg + Urea</td>
+                        <td>₹2,425/q (MSP)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="fw-bold text-warning">☀️ Zaid</span><br><small>Mar-Jun</small></td>
+                        <td>Watermelon, Cucumber</td>
+                        <td>Vermicompost 2t + NPK 15:15:15</td>
+                        <td>₹8-15/kg (veg)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Practical Tips & Success Stories -->
+    <section class="container py-5">
+      <div class="section-title">Practical Tips, FAQs & Success Stories</div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="success-story">
+            <h6>Success Story: Sushil Kumar, Haryana</h6>
+            <p>By using drip irrigation under PMKSY and selling wheat via e-NAM, Sushil increased his profit by 30% in 2024. He also received ₹6,000 support from PM-KISAN and insured his crop under PMFBY.</p>
+          </div>
+          <div class="success-story">
+            <h6>Tip: Maximize Profits</h6>
+            <ul>
+              <li>Check mandi prices daily before selling.</li>
+              <li>Apply fertilizer as per Soil Health Card recommendations.</li>
+              <li>Use certified seeds and maintain crop rotation.</li>
+              <li>Adopt water-saving irrigation and pest management.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="success-story">
+            <h6>FAQ: How to Apply for PM-KISAN?</h6>
+            <p>Visit <a href="https://pmkisan.gov.in/" target="_blank">pmkisan.gov.in</a>, register with Aadhaar and land details, or contact your local agriculture office.</p>
+          </div>
+          <div class="success-story">
+            <h6>FAQ: How to Get Soil Health Card?</h6>
+            <p>Submit a soil sample at your nearest KVK or agri office. Get a card with personalized fertilizer advice within 2 weeks.</p>
+          </div>
+          <div class="success-story">
+            <h6>FAQ: What is the new Dhan-Dhaanya Krishi Yojana?</h6>
+            <p>A new flagship scheme (2025) to boost productivity and income in 100 low-productivity districts, with special focus on sustainability and credit access.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title text-white">Contact Us</div>
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom px-4 py-2">Send Message</button>
+                    </form>
+                    <div class="mt-4">
+                        <strong>Email:</strong> contact@agrovision.in<br>
+                        <strong>Phone:</strong> +91 12345 67890
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 AgroVision. All rights reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if(this.hash) {
+                    e.preventDefault();
+                    document.querySelector(this.hash).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            alert('Thank you! Your message has been received.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

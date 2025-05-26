@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Farming Techniques | AgroVision</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #f5f8f6 100%);
+        }
+        .navbar {
+            background: linear-gradient(90deg, #388e3c 70%, #81c784 100%);
+            box-shadow: 0 4px 18px rgba(56,142,60,0.10);
+        }
+        .navbar-brand {
+            font-weight: 700; color: #fff !important; letter-spacing: 2px; font-size: 2rem;
+        }
+        .nav-link {
+            color: #fff !important; font-weight: 500; margin-right: 1rem; transition: color 0.2s;
+        }
+        .nav-link.active, .nav-link:hover { color: #ffd600 !important; }
+        .hero-section {
+            background: linear-gradient(rgba(56,142,60,0.8),rgba(56,142,60,0.7)), 
+                url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: #fff; min-height: 45vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            position: relative;
+        }
+        .hero-section::after {
+            content: "";
+            background: url('https://img.freepik.com/free-photo/ai-robot-agriculture-farm-field_23-2151004371.jpg?w=800') center/cover no-repeat;
+            opacity: 0.18;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+        }
+        .hero-section .container { position: relative; z-index: 2; }
+        .hero-section h1 { font-size: 2.7rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: 2px; }
+        .section-title {
+            font-weight: 700; color: #388e3c; margin: 2rem 0 1.5rem 0; text-align: center; letter-spacing: 1px; font-size: 2.1rem;
+        }
+        .tech-card {
+            background: #fff; border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(56,142,60,0.10);
+            padding: 2rem 1.2rem 1.5rem 1.2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .tech-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 16px 40px rgba(56,142,60,0.18);
+            border: 2px solid #ffd600;
+        }
+        .tech-icon {
+            width: 64px;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(56,142,60,0.10);
+        }
+        .ai-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .video-link {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: #388e3c;
+            font-weight: 600;
+            text-decoration: none;
+            background: #e0f2f1;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .video-link:hover {
+            background: #ffd600;
+            color: #222;
+            text-decoration: underline;
+        }
+        .back-link {
+            color: #388e3c; text-decoration: none; font-weight: 600; margin-bottom: 2rem; display: inline-block;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .alert-info {
+            background: linear-gradient(90deg, #e3f2fd 70%, #fffde7 100%);
+            color: #388e3c;
+            border: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">AgroVision</a>
+        </div>
+    </nav>
+    <section class="hero-section">
+        <div class="container">
+            <h1>Modern Farming Techniques</h1>
+            <p>Boost your yield and sustainability with the latest agricultural innovations.</p>
+        </div>
+    </section>
+    <div class="container my-4">
+        <a href="index.html#services" class="back-link">&larr; Back to Services</a>
+        <div class="section-title">Explore New Techniques</div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="tech-card text-center">
+                    <img src="https://img.freepik.com/free-photo/drone-flying-over-farm-ai-generated_123827-23757.jpg?w=400" class="ai-img" alt="Drone in Farm">
+                    <img src="https://img.icons8.com/color/96/000000/drone.png" class="tech-icon" alt="Drone">
+                    <h5>Drone Monitoring</h5>
+                    <p>Use drones for crop surveillance, pest detection, and precision spraying.</p>
+                    <a class="video-link" href="https://www.youtube.com/watch?v=UZdctZqt4AM" target="_blank">
+                        Watch: 10 Modern Agriculture Technology Farming Techniques
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tech-card text-center">
+                    <img src="https://img.freepik.com/free-photo/organic-farming-concept-ai-generated_123827-23801.jpg?w=400" class="ai-img" alt="Organic Farming AI">
+                    <img src="https://img.icons8.com/color/96/000000/sprout.png" class="tech-icon" alt="Organic">
+                    <h5>Organic Farming</h5>
+                    <p>Adopt natural fertilizers and pest control for healthier crops and soil.</p>
+                    <a class="video-link" href="https://www.youtube.com/watch?v=lMQRB4nGUmA" target="_blank">
+                        Watch: Modern Techniques for High-Yield Sustainable Agriculture
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tech-card text-center">
+                    <img src="https://img.freepik.com/free-photo/ai-smart-irrigation-system-agriculture_23-2151004370.jpg?w=400" class="ai-img" alt="AI Smart Irrigation">
+                    <img src="https://img.icons8.com/color/96/000000/smart-farm.png" class="tech-icon" alt="Smart Irrigation">
+                    <h5>Smart Irrigation</h5>
+                    <p>Save water and improve yield with drip and sensor-based irrigation systems.</p>
+                    <a class="video-link" href="https://www.youtube.com/watch?v=Y7WX8G6enbc" target="_blank">
+                        Watch: 5 Smart Irrigation Systems for Modern Day Farming
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-info mt-4" role="alert">
+            <strong>Did you know?</strong> Government subsidies are available for many modern techniques. <a href="https://pmksy.gov.in/" target="_blank">Learn more</a>
+        </div>
+    </div>
+</body>
+</html>

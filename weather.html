@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast | AgroVision</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background: #f5f8f6; }
+        .navbar { background: linear-gradient(90deg, #388e3c 60%, #8bc34a 100%); }
+        .navbar-brand { font-weight: 700; color: #fff !important; letter-spacing: 2px; }
+        .nav-link { color: #fff !important; font-weight: 500; margin-right: 1rem; }
+        .nav-link.active, .nav-link:hover { color: #ffd600 !important; }
+        .hero-section {
+            background: linear-gradient(rgba(56,142,60,0.8),rgba(56,142,60,0.8)), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: #fff; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+        .hero-section h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .section-title { font-weight: 700; color: #388e3c; margin: 2rem 0 1.5rem 0; text-align: center; letter-spacing: 1px; }
+        .weather-card { background: #fff; border-radius: 16px; box-shadow: 0 6px 32px rgba(56,142,60,0.08); padding: 2rem; margin-bottom: 2rem; }
+        .weather-icon { width: 80px; }
+        .back-link { color: #388e3c; text-decoration: none; font-weight: 600; margin-bottom: 2rem; display: inline-block; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">AgroVision</a>
+        </div>
+    </nav>
+    <section class="hero-section">
+        <div class="container">
+            <h1>Weather Forecast</h1>
+            <p>Plan your farming activities with real-time weather updates and alerts.</p>
+        </div>
+    </section>
+    
+    <div class="container my-4">
+        <a href="index.html#services" class="back-link">&larr; Back to Services</a>
+        <div class="section-title">Select Date for Weather Forecast</div>
+        
+        <!-- Calendar Input -->
+        <div class="mb-3">
+            <label for="weatherDate" class="form-label">Choose Date:</label>
+            <input type="date" id="weatherDate" class="form-control" 
+                   min="2023-01-01" max="2025-12-31" 
+                   value="2025-05-18">
+        </div>
+
+        <!-- Weather Display -->
+        <div id="weatherResult" class="weather-card text-center">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+
+        <!-- Weekly Forecast -->
+        <div class="section-title mt-5">Weekly Forecast</div>
+        <div class="row g-3">
+            <!-- Existing weekly forecast cards -->
+        </div>
+    </div>
+
+    <!-- Weather Script -->
+    <script>
+        const weatherData = {
+            "2025-05-18": { 
+                icon: "https://img.icons8.com/color/96/000000/partly-cloudy-day--v2.png", 
+                condition: "Partly Cloudy", 
+                temp: "29°C", 
+                humidity: "68%", 
+                rain: "20%", 
+                wind: "10 km/h SW" 
+            },
+            "2025-05-19": { 
+                icon: "https://img.icons8.com/color/96/000000/sun--v1.png", 
+                condition: "Sunny", 
+                temp: "32°C", 
+                humidity: "55%", 
+                rain: "5%", 
+                wind: "8 km/h NE" 
+            },
+            "2025-05-20": { 
+                icon: "https://img.icons8.com/color/96/000000/rain.png", 
+                condition: "Rainy", 
+                temp: "25°C", 
+                humidity: "90%", 
+                rain: "80%", 
+                wind: "15 km/h W" 
+            },
+            // Add more dates as needed
+        };
+
+        const weatherDateInput = document.getElementById('weatherDate');
+        const weatherResultDiv = document.getElementById('weatherResult');
+
+        function updateWeatherDisplay(date) {
+            const data = weatherData[date];
+            if(data) {
+                weatherResultDiv.innerHTML = `
+                    <img src="${data.icon}" class="weather-icon" alt="Weather">
+                    <h3 class="mt-3">${data.condition}</h3>
+                    <p class="mb-1">Temperature: <strong>${data.temp}</strong></p>
+                    <p class="mb-1">Humidity: <strong>${data.humidity}</strong></p>
+                    <p class="mb-1">Rain Probability: <strong>${data.rain}</strong></p>
+                    <p class="mb-0">Wind: <strong>${data.wind}</strong></p>
+                `;
+            } else {
+                weatherResultDiv.innerHTML = `<p>No weather data available for selected date.</p>`;
+            }
+        }
+
+        weatherDateInput.addEventListener('change', (e) => {
+            updateWeatherDisplay(e.target.value);
+        });
+
+        // Initialize with default date
+        updateWeatherDisplay(weatherDateInput.value);
+    </script>
+</body>
+</html>
